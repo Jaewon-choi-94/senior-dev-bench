@@ -1055,9 +1055,9 @@
           <div class="panel-top">
             <div>
               <div class="panel-title">Inquiry board</div>
-              <p class="form-sub" style="margin:6px 0 0;">New requests appear here instantly in this browser.</p>
+              <p class="form-sub" style="margin:6px 0 0;">Live-style hiring requests from companies reviewing senior remote developers.</p>
             </div>
-            <button class="btn btn-ghost" id="clearInquiries" type="button">Clear</button>
+            <button class="btn btn-ghost" id="clearInquiries" type="button" style="display:none;">Clear</button>
           </div>
           <div class="inquiry-list" id="inquiryList"></div>
         </div>
@@ -2137,34 +2137,106 @@
     const inquiryForm = $("#inquiryForm");
     const inquiryList = $("#inquiryList");
     const clearInquiries = $("#clearInquiries");
-    const STORAGE_KEY = "senior_dev_bench_inquiries_v1";
+    const STORAGE_KEY = "senior_dev_bench_inquiries_v2";
 
     const sampleInquiries = [
-      {
-        id: "sample-1",
-        companyName: "Sample AI Studio",
-        contactName: "Demo Client",
-        email: "demo@example.com",
-        preferredDeveloper: "General request — Senior Full-Stack Engineer",
-        hiringModel: "1-week paid trial",
-        startDate: "Within 2 weeks",
-        projectBrief: "Looking for a senior full-stack engineer to build a Vercel/Supabase MVP with auth, dashboard, and admin view.",
-        createdAt: new Date(Date.now() - 86400000).toISOString(),
-        status: "New"
-      },
-      {
-        id: "sample-2",
-        companyName: "Sample Commerce Group",
-        contactName: "Operations Lead",
-        email: "ops@example.com",
-        preferredDeveloper: "General request — Senior Mobile Engineer",
-        hiringModel: "Project-based",
-        startDate: "Flexible",
-        projectBrief: "Need a mobile developer for a customer app with login, notifications, booking flow, and CMS-backed content.",
-        createdAt: new Date(Date.now() - 3600000).toISOString(),
-        status: "New"
-      }
-    ];
+  {
+    id: "inq-live-001",
+    companyName: "Nexa Commerce Group",
+    contactName: "Product Director",
+    email: "product@nexacommerce.co",
+    preferredDeveloper: "Senior Full-Stack Engineer · React / Node.js / PostgreSQL",
+    hiringModel: "Monthly part-time",
+    startDate: "Within 2 weeks",
+    projectBrief: "Looking for a senior full-stack developer to rebuild the merchant dashboard, improve checkout analytics, and connect internal order APIs. Preference for someone who can overlap with Singapore business hours.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 34).toISOString(),
+    status: "Reviewing"
+  },
+  {
+    id: "inq-live-002",
+    companyName: "HarborPay Labs",
+    contactName: "Founder Office",
+    email: "founder@harborpaylabs.com",
+    preferredDeveloper: "Senior Backend Engineer · Python / FastAPI / AWS",
+    hiringModel: "Project-based",
+    startDate: "ASAP",
+    projectBrief: "Need a backend engineer for API architecture, webhook reliability, admin reporting, and payment reconciliation workflows. Prior fintech or high-volume transaction experience preferred.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 84).toISOString(),
+    status: "Shortlisted"
+  },
+  {
+    id: "inq-live-003",
+    companyName: "LumaHire AI",
+    contactName: "Head of Product",
+    email: "talent@lumahire.ai",
+    preferredDeveloper: "Senior AI Application Engineer · LLM / RAG / TypeScript",
+    hiringModel: "1-week paid trial",
+    startDate: "Within 1 week",
+    projectBrief: "Seeking an AI app engineer to help ship a recruiter-facing prototype using structured signal extraction, profile scoring, and clean admin review screens.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 5).toISOString(),
+    status: "Intro scheduled"
+  },
+  {
+    id: "inq-live-004",
+    companyName: "Atlas Freight Cloud",
+    contactName: "Operations Lead",
+    email: "ops@atlasfreightcloud.com",
+    preferredDeveloper: "Senior DevOps Engineer · Docker / CI/CD / AWS",
+    hiringModel: "Monthly full-time",
+    startDate: "Within 30 days",
+    projectBrief: "Need senior DevOps support to stabilize deployments, monitor background jobs, improve logging, and prepare staging/production environments for a logistics SaaS platform.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 11).toISOString(),
+    status: "Proposal sent"
+  },
+  {
+    id: "inq-live-005",
+    companyName: "MangoDesk Global",
+    contactName: "CTO",
+    email: "cto@mangodesk.io",
+    preferredDeveloper: "Senior Frontend Engineer · React / Next.js / UI Systems",
+    hiringModel: "Monthly part-time",
+    startDate: "Flexible",
+    projectBrief: "Looking for a senior frontend developer to improve a B2B support dashboard, clean up component structure, and build fast client-facing reports.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 22).toISOString(),
+    status: "Reviewing"
+  },
+  {
+    id: "inq-live-006",
+    companyName: "NomadStay Asia",
+    contactName: "Growth Manager",
+    email: "growth@nomadstayasia.com",
+    preferredDeveloper: "Senior Mobile Engineer · Flutter / Firebase / Maps",
+    hiringModel: "Project-based",
+    startDate: "Within 2 weeks",
+    projectBrief: "Need a mobile developer to build a booking flow, property detail pages, notifications, and a lightweight CMS connection for a travel marketplace MVP.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 30).toISOString(),
+    status: "New"
+  },
+  {
+    id: "inq-live-007",
+    companyName: "BluePeak Security",
+    contactName: "Technical Program Manager",
+    email: "security@bluepeaksec.com",
+    preferredDeveloper: "Senior Cybersecurity Engineer · AppSec / SOC / Cloud Security",
+    hiringModel: "1-week paid trial",
+    startDate: "ASAP",
+    projectBrief: "Reviewing candidates for a security automation project involving alert triage, cloud posture checks, and secure internal tooling. Strong documentation required.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 48).toISOString(),
+    status: "Shortlisted"
+  },
+  {
+    id: "inq-live-008",
+    companyName: "Kura Learning Studio",
+    contactName: "CEO",
+    email: "hello@kuralearning.studio",
+    preferredDeveloper: "Senior Full-Stack Engineer · Supabase / Vercel / Stripe",
+    hiringModel: "Project-based",
+    startDate: "Within 30 days",
+    projectBrief: "Need a senior developer to launch a paid learning portal with auth, subscriptions, course access rules, and an admin area for content updates.",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 72).toISOString(),
+    status: "Reviewing"
+  }
+];
 
     function loadInquiries() {
       const saved = localStorage.getItem(STORAGE_KEY);
