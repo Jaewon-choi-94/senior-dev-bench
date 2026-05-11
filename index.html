@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeniorDev Bench | Vetted Senior Developers</title>
+  <meta name="description" content="Browse vetted senior developers from Vietnam, Uzbekistan, Indonesia, and the Philippines. Submit a hiring inquiry and negotiate directly after review." />
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --surface-2: #f0f3f8;
+      --text: #111827;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --dark: #0f172a;
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --accent: #14b8a6;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --radius: 24px;
+      --shadow: 0 20px 60px rgba(15, 23, 42, 0.10);
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .top-banner {
+      background: #0f172a;
+      color: #e2e8f0;
+      font-size: 14px;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    .top-banner strong { color: #ffffff; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 248, 251, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      font-size: 22px;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, #2563eb, #14b8a6);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #334155;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 750;
+      font-size: 14px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.26);
+    }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-dark {
+      background: var(--dark);
+      color: white;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.20);
+    }
+    .btn-ghost {
+      background: white;
+      color: #0f172a;
+      border: 1px solid var(--line);
+    }
+    .btn-soft {
+      background: #eaf1ff;
+      color: #1d4ed8;
+    }
+    .btn-block { width: 100%; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 76px 20px 46px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -260px -160px auto auto;
+      width: 560px;
+      height: 560px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(37,99,235,0.18), rgba(37,99,235,0));
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto auto -280px -180px;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(20,184,166,0.18), rgba(20,184,166,0));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+      gap: 46px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eaf1ff;
+      color: #1d4ed8;
+      font-size: 13px;
+      font-weight: 800;
+      border: 1px solid #dbeafe;
+    }
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34,197,94,0.16);
+    }
+
+    h1 {
+      margin: 20px 0 18px;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+    }
+    .hero-copy {
+      max-width: 660px;
+      margin: 0;
+      color: #475569;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .trust-row {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: #475569;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .trust-chip {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 9px 11px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-panel {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(226,232,240,0.95);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      overflow: hidden;
+    }
+    .panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .panel-title {
+      font-weight: 850;
+      letter-spacing: -0.03em;
+      font-size: 18px;
+    }
+    .live-badge {
+      color: #047857;
+      background: #dcfce7;
+      border: 1px solid #bbf7d0;
+      font-size: 12px;
+      font-weight: 850;
+      border-radius: 999px;
+      padding: 7px 10px;
+    }
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .mini-card {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px;
+    }
+    .mini-number {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: #0f172a;
+    }
+    .mini-label {
+      margin-top: 4px;
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 650;
+    }
+    .country-bars {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+    .country-bar {
+      display: grid;
+      grid-template-columns: 118px 1fr 36px;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+      color: #475569;
+      font-weight: 750;
+    }
+    .bar-track {
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #14b8a6);
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 56px 20px;
+    }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 22px;
+    }
+    .eyebrow {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+    }
+    .section-desc {
+      color: #64748b;
+      line-height: 1.65;
+      font-size: 16px;
+      max-width: 560px;
+      margin: 12px 0 0;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .step {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: #eaf1ff;
+      color: #1d4ed8;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+    .step p {
+      margin: 0;
+      color: #64748b;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .filters {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 0.8fr);
+      gap: 12px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 20px;
+    }
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+    label {
+      color: #475569;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 13px 14px;
+      color: #0f172a;
+      outline: none;
+      font-size: 14px;
+      transition: border 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(37,99,235,0.55);
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+      background: white;
+    }
+    textarea { min-height: 118px; resize: vertical; }
+
+    .results-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #64748b;
+      font-weight: 700;
+      margin-bottom: 16px;
+      gap: 12px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .dev-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      min-height: 396px;
+      position: relative;
+      overflow: hidden;
+    }
+    .dev-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: linear-gradient(90deg, #2563eb, #14b8a6);
+    }
+    .dev-head {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      margin-top: 4px;
+    }
+    .avatar {
+      flex: 0 0 auto;
+      width: 58px;
+      height: 58px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #0f172a, #2563eb);
+      box-shadow: 0 12px 26px rgba(15,23,42,0.20);
+    }
+    .dev-name {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+    }
+    .dev-role {
+      margin: 4px 0 0;
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0;
+    }
+    .tag {
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      color: #475569;
+      border-radius: 999px;
+      padding: 7px 9px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .tag.blue {
+      background: #eaf1ff;
+      color: #1d4ed8;
+      border-color: #dbeafe;
+    }
+    .tag.green {
+      background: #ecfdf5;
+      color: #047857;
+      border-color: #bbf7d0;
+    }
+    .summary {
+      color: #475569;
+      line-height: 1.55;
+      font-size: 14px;
+      margin: 0 0 14px;
+    }
+    .skill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 10px;
+    }
+    .skill {
+      background: #f1f5f9;
+      border-radius: 999px;
+      padding: 6px 8px;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 750;
+    }
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .board-layout {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .form-card, .inquiry-card-wrap, .dark-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 22px;
+      box-shadow: var(--shadow-soft);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+    .form-grid .wide { grid-column: 1 / -1; }
+    .form-title {
+      margin: 0 0 6px;
+      font-size: 22px;
+      letter-spacing: -0.04em;
+    }
+    .form-sub {
+      margin: 0 0 18px;
+      color: #64748b;
+      line-height: 1.55;
+    }
+
+    .inquiry-list {
+      display: grid;
+      gap: 12px;
+      max-height: 670px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+    .inquiry {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px;
+      background: #f8fafc;
+    }
+    .inquiry-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .inquiry-title {
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      color: #0f172a;
+    }
+    .status {
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #047857;
+      padding: 6px 9px;
+      font-size: 12px;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+    .inquiry p {
+      margin: 7px 0 0;
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .inquiry small {
+      color: #64748b;
+      font-weight: 700;
+    }
+
+    .dark-section {
+      background: #0f172a;
+      color: white;
+      margin-top: 40px;
+    }
+    .dark-section .section-desc, .dark-section .eyebrow {
+      color: #cbd5e1;
+    }
+    .dark-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .dark-card {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+      box-shadow: none;
+    }
+    .dark-card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      letter-spacing: -0.04em;
+    }
+    .dark-card p {
+      margin: 0;
+      color: #cbd5e1;
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    footer {
+      background: #0b1220;
+      color: #94a3b8;
+      padding: 28px 20px;
+    }
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.62);
+      z-index: 50;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+    .modal-backdrop.active { display: flex; }
+    .modal {
+      width: min(760px, 100%);
+      max-height: 88vh;
+      overflow: auto;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.28);
+      border: 1px solid var(--line);
+      padding: 24px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 900;
+      color: #334155;
+    }
+    .modal-header {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding-right: 42px;
+    }
+    .modal h3 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+    }
+    .modal-role {
+      margin-top: 6px;
+      color: #475569;
+      font-weight: 800;
+    }
+    .modal-section {
+      margin-top: 18px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+    .modal-section h4 {
+      margin: 0 0 10px;
+      letter-spacing: -0.03em;
+      font-size: 16px;
+    }
+    .career-list {
+      margin: 0;
+      padding-left: 20px;
+      color: #475569;
+      line-height: 1.7;
+    }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%) translateY(20px);
+      background: #0f172a;
+      color: white;
+      padding: 13px 16px;
+      border-radius: 999px;
+      box-shadow: 0 18px 44px rgba(15,23,42,0.24);
+      z-index: 80;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.22s ease;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .toast.active {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .empty {
+      background: white;
+      border: 1px dashed #cbd5e1;
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+      color: #64748b;
+      font-weight: 750;
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .board-layout {
+        grid-template-columns: 1fr;
+      }
+      .steps,
+      .cards,
+      .dark-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .filters {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .top-banner { font-size: 12px; }
+      .nav { padding: 13px 16px; }
+      .brand span:last-child { display: none; }
+      .hero { padding: 48px 16px 26px; }
+      .hero-actions .btn { width: 100%; }
+      .section { padding: 42px 16px; }
+      .section-head { display: block; }
+      .steps,
+      .cards,
+      .dark-grid,
+      .filters,
+      .mini-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-grid .wide { grid-column: auto; }
+      .card-actions { grid-template-columns: 1fr; }
+      .country-bar { grid-template-columns: 92px 1fr 30px; }
+      .nav-actions .btn-ghost { display: none; }
+      .hero-panel { border-radius: 26px; padding: 16px; }
+      .modal { padding: 18px; border-radius: 24px; }
+      .modal h3 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-banner">
+    <strong>Sample MVP:</strong> 28 fictional senior developer profiles · Price shown as inquiry / negotiable · Inquiry board works in this browser
+  </div>
+
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#">
+        <span class="brand-mark">SD</span>
+        <span>SeniorDev Bench</span>
+      </a>
+      <div class="nav-links">
+        <a href="#developers">Developers</a>
+        <a href="#process">Process</a>
+        <a href="#inquiry">Hiring Inquiry</a>
+        <a href="#quality">Quality</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="#developers">Browse</a>
+        <a class="btn btn-primary" href="#inquiry">Leave Inquiry</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="pill"><span class="pulse"></span> Vetted senior developers only</div>
+          <h1>Hire senior remote developers without the hiring delay.</h1>
+          <p class="hero-copy">
+            Browse curated senior developer profiles from Vietnam, Uzbekistan, Indonesia, and the Philippines.
+            Choose the best-fit candidate and leave a hiring inquiry. Pricing is handled by quote and negotiation after review.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#developers">Browse 28 Developers</a>
+            <a class="btn btn-dark" href="#inquiry">Submit Hiring Inquiry</a>
+          </div>
+          <div class="trust-row">
+            <span class="trust-chip">✓ Senior-only talent</span>
+            <span class="trust-chip">✓ Remote-ready profiles</span>
+            <span class="trust-chip">✓ Inquiry-first pricing</span>
+            <span class="trust-chip">✓ No junior marketplace noise</span>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Talent summary">
+          <div class="panel-top">
+            <div class="panel-title">Current sample bench</div>
+            <div class="live-badge">28 Profiles</div>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card">
+              <div class="mini-number">28</div>
+              <div class="mini-label">Senior developers and tech specialists</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-number">8–13</div>
+              <div class="mini-label">Typical years of professional experience</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-number">4</div>
+              <div class="mini-label">Countries in the initial talent bench</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-number">Quote</div>
+              <div class="mini-label">Pricing by inquiry and negotiation</div>
+            </div>
+          </div>
+          <div class="country-bars">
+            <div class="country-bar"><span>Vietnam</span><span class="bar-track"><span class="bar-fill" style="width:54.5%"></span></span><span>6</span></div>
+            <div class="country-bar"><span>Uzbekistan</span><span class="bar-track"><span class="bar-fill" style="width:100%"></span></span><span>11</span></div>
+            <div class="country-bar"><span>Indonesia</span><span class="bar-track"><span class="bar-fill" style="width:72.7%"></span></span><span>8</span></div>
+            <div class="country-bar"><span>Philippines</span><span class="bar-track"><span class="bar-fill" style="width:27.3%"></span></span><span>3</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">How it works</div>
+          <h2>Profile selection first. Negotiation after inquiry.</h2>
+          <p class="section-desc">
+            This MVP avoids fixed public pricing. Clients review senior profiles, select preferred developers,
+            and submit one structured hiring inquiry.
+          </p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Browse profiles</h3>
+          <p>Filter by country, role, availability, and technology stack.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Select developer</h3>
+          <p>Open the profile, review experience, then choose the candidate.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Leave inquiry</h3>
+          <p>Submit company details, project scope, preferred start date, and hiring model.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Quote & onboard</h3>
+          <p>Pricing, availability, trial terms, and contract details are confirmed after review.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="developers">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Developer bench</div>
+          <h2>Curated senior developers by country and specialty.</h2>
+          <p class="section-desc">
+            All profiles below are fictional sample profiles for the MVP demo. Replace names and details with real vetted talent before launch.
+          </p>
+        </div>
+        <a class="btn btn-soft" href="#inquiry">Request custom shortlist</a>
+      </div>
+
+      <div class="filters">
+        <div class="field">
+          <label for="searchInput">Search</label>
+          <input id="searchInput" type="search" placeholder="Search role, skill, country, name..." />
+        </div>
+        <div class="field">
+          <label for="countryFilter">Country</label>
+          <select id="countryFilter">
+            <option value="All">All countries</option>
+            <option value="Vietnam">Vietnam</option>
+            <option value="Uzbekistan">Uzbekistan</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="Philippines">Philippines</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="roleFilter">Role</label>
+          <select id="roleFilter">
+            <option value="All">All roles</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="availabilityFilter">Availability</label>
+          <select id="availabilityFilter">
+            <option value="All">Any availability</option>
+            <option value="Available now">Available now</option>
+            <option value="Available in 2 weeks">Available in 2 weeks</option>
+            <option value="Available in 1 month">Available in 1 month</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="results-row">
+        <span id="resultCount">Showing 28 developers</span>
+        <button class="btn btn-ghost" id="resetFilters" type="button">Reset filters</button>
+      </div>
+
+      <div class="cards" id="developerGrid"></div>
+    </section>
+
+    <section class="dark-section" id="quality">
+      <div class="section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Quality positioning</div>
+            <h2>Built for clients who want senior talent, not a giant freelancer list.</h2>
+            <p class="section-desc">
+              The site can be positioned as a curated bench: fewer profiles, stronger quality signal, and inquiry-based commercial handling.
+            </p>
+          </div>
+        </div>
+        <div class="dark-grid">
+          <div class="dark-card">
+            <h3>Senior-only supply</h3>
+            <p>No public junior pool. The platform highlights experienced engineers who can communicate, estimate, and deliver independently.</p>
+          </div>
+          <div class="dark-card">
+            <h3>Negotiated pricing</h3>
+            <p>Each profile shows “Inquiry / Negotiable” instead of fixed rates, giving flexibility by project, duration, urgency, and client quality.</p>
+          </div>
+          <div class="dark-card">
+            <h3>Inquiry board</h3>
+            <p>Every client request is collected in one board so the operator can review demand, shortlist candidates, and follow up manually.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="inquiry">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Hiring inquiry board</div>
+          <h2>Leave one inquiry. We match the best senior developer.</h2>
+          <p class="section-desc">
+            This demo stores inquiries in your browser only. For a real launch, connect this form to Supabase, Airtable, or your CRM.
+          </p>
+        </div>
+      </div>
+
+      <div class="board-layout">
+        <form class="form-card" id="inquiryForm">
+          <h3 class="form-title">Developer hiring inquiry</h3>
+          <p class="form-sub">Select a developer from the cards or submit a general request.</p>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="companyName">Company / Client name</label>
+              <input id="companyName" required placeholder="Example: Acme AI Labs" />
+            </div>
+            <div class="field">
+              <label for="contactName">Contact person</label>
+              <input id="contactName" required placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" required type="email" placeholder="you@company.com" />
+            </div>
+            <div class="field">
+              <label for="preferredDeveloper">Preferred developer</label>
+              <input id="preferredDeveloper" placeholder="Auto-filled when selected" />
+            </div>
+            <div class="field">
+              <label for="hiringModel">Hiring model</label>
+              <select id="hiringModel">
+                <option>1-week paid trial</option>
+                <option>Part-time monthly</option>
+                <option>Full-time monthly</option>
+                <option>Project-based</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="startDate">Preferred start</label>
+              <select id="startDate">
+                <option>As soon as possible</option>
+                <option>Within 2 weeks</option>
+                <option>Within 1 month</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+            <div class="field wide">
+              <label for="projectBrief">Project brief</label>
+              <textarea id="projectBrief" required placeholder="Tell us what you want to build, required skills, expected duration, and preferred communication style."></textarea>
+            </div>
+            <div class="field wide">
+              <button class="btn btn-primary btn-block" type="submit">Submit Inquiry</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="inquiry-card-wrap">
+          <div class="panel-top">
+            <div>
+              <div class="panel-title">Inquiry board</div>
+              <p class="form-sub" style="margin:6px 0 0;">New requests appear here instantly in this browser.</p>
+            </div>
+            <button class="btn btn-ghost" id="clearInquiries" type="button">Clear</button>
+          </div>
+          <div class="inquiry-list" id="inquiryList"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 SeniorDev Bench. Sample MVP website.</div>
+      <div>Vietnam · Uzbekistan · Indonesia · Philippines · Senior-only remote talent</div>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Done</div>
+
+  <script>
+    const developers = [
+  {
+    "id": "VN-001",
+    "name": "Minh Tran",
+    "country": "Vietnam",
+    "city": "Ho Chi Minh City",
+    "role": "Senior Full-Stack Engineer",
+    "seniority": "Senior",
+    "years": 10,
+    "skills": [
+      "React",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "AWS"
+    ],
+    "domain": "SaaS platforms, dashboards, payment-integrated web apps",
+    "availability": "Available in 2 weeks",
+    "timezone": "ICT / UTC+7",
+    "languages": [
+      "English",
+      "Vietnamese"
+    ],
+    "summary": "Builds production-grade SaaS products from frontend architecture to backend APIs.",
+    "career": [
+      "Led a 6-person engineering squad for a B2B SaaS platform",
+      "Migrated a monolith dashboard to Next.js and API-first architecture",
+      "Built role-based admin systems, billing flows, and analytics modules"
+    ]
+  },
+  {
+    "id": "VN-002",
+    "name": "Linh Nguyen",
+    "country": "Vietnam",
+    "city": "Hanoi",
+    "role": "Senior Frontend Engineer",
+    "seniority": "Senior",
+    "years": 8,
+    "skills": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Design Systems",
+      "Vite"
+    ],
+    "domain": "Responsive web apps, design systems, conversion-focused landing pages",
+    "availability": "Available now",
+    "timezone": "ICT / UTC+7",
+    "languages": [
+      "English",
+      "Vietnamese"
+    ],
+    "summary": "Specialist in polished frontend experiences, fast UI implementation, and scalable components.",
+    "career": [
+      "Created design systems used across multiple product teams",
+      "Improved app performance and Core Web Vitals for high-traffic products",
+      "Built multilingual interfaces for consumer and enterprise apps"
+    ]
+  },
+  {
+    "id": "VN-003",
+    "name": "Quang Pham",
+    "country": "Vietnam",
+    "city": "Da Nang",
+    "role": "Senior Backend Engineer",
+    "seniority": "Senior",
+    "years": 11,
+    "skills": [
+      "Python",
+      "FastAPI",
+      "Django",
+      "PostgreSQL",
+      "Redis",
+      "Docker"
+    ],
+    "domain": "Backend APIs, automation systems, internal business tools",
+    "availability": "Available in 1 month",
+    "timezone": "ICT / UTC+7",
+    "languages": [
+      "English",
+      "Vietnamese"
+    ],
+    "summary": "Strong backend engineer for secure API systems, automation, and database-heavy products.",
+    "career": [
+      "Designed high-volume API services for fintech-style workflows",
+      "Built automation pipelines for operations and reporting",
+      "Implemented logging, queue processing, and reliability improvements"
+    ]
+  },
+  {
+    "id": "VN-004",
+    "name": "Anh Le",
+    "country": "Vietnam",
+    "city": "Ho Chi Minh City",
+    "role": "Senior Mobile Engineer",
+    "seniority": "Senior",
+    "years": 9,
+    "skills": [
+      "Flutter",
+      "React Native",
+      "Firebase",
+      "Supabase",
+      "iOS",
+      "Android"
+    ],
+    "domain": "Mobile MVPs, marketplace apps, booking and social features",
+    "availability": "Available now",
+    "timezone": "ICT / UTC+7",
+    "languages": [
+      "English",
+      "Vietnamese"
+    ],
+    "summary": "Mobile-first senior engineer who can ship cross-platform apps quickly and cleanly.",
+    "career": [
+      "Launched cross-platform apps for commerce and booking use cases",
+      "Integrated push notifications, auth, chat, maps, and payments",
+      "Led app store release processes and crash monitoring"
+    ]
+  },
+  {
+    "id": "VN-005",
+    "name": "Bao Hoang",
+    "country": "Vietnam",
+    "city": "Hanoi",
+    "role": "Senior DevOps / Cloud Engineer",
+    "seniority": "Senior",
+    "years": 12,
+    "skills": [
+      "AWS",
+      "GCP",
+      "Kubernetes",
+      "Terraform",
+      "CI/CD",
+      "Monitoring"
+    ],
+    "domain": "Cloud infrastructure, deployment automation, production reliability",
+    "availability": "Available in 2 weeks",
+    "timezone": "ICT / UTC+7",
+    "languages": [
+      "English",
+      "Vietnamese"
+    ],
+    "summary": "Helps teams move from fragile deployments to clean, monitored cloud infrastructure.",
+    "career": [
+      "Built CI/CD pipelines for multi-environment SaaS teams",
+      "Reduced cloud incidents with observability and autoscaling setup",
+      "Implemented infrastructure-as-code for repeatable deployments"
+    ]
+  },
+  {
+    "id": "VN-006",
+    "name": "Thao Vo",
+    "country": "Vietnam",
+    "city": "Ho Chi Minh City",
+    "role": "Senior QA Automation Engineer",
+    "seniority": "Senior",
+    "years": 9,
+    "skills": [
+      "Playwright",
+      "Cypress",
+      "Selenium",
+      "API Testing",
+      "CI",
+      "Test Strategy"
+    ],
+    "domain": "QA automation, release quality, regression testing systems",
+    "availability": "Available now",
+    "timezone": "ICT / UTC+7",
+    "languages": [
+      "English",
+      "Vietnamese"
+    ],
+    "summary": "Builds automated QA systems so teams can release faster with fewer production bugs.",
+    "career": [
+      "Introduced automated regression suites for web and mobile products",
+      "Created test coverage strategy for subscription and marketplace platforms",
+      "Integrated QA checks into CI pipelines"
+    ]
+  },
+  {
+    "id": "UZ-001",
+    "name": "Aziz Karimov",
+    "country": "Uzbekistan",
+    "city": "Tashkent",
+    "role": "Senior Backend Engineer",
+    "seniority": "Senior",
+    "years": 10,
+    "skills": [
+      "Node.js",
+      "NestJS",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Docker"
+    ],
+    "domain": "API platforms, marketplace backend, transaction workflows",
+    "availability": "Available now",
+    "timezone": "UZT / UTC+5",
+    "languages": [
+      "English",
+      "Uzbek",
+      "Russian"
+    ],
+    "summary": "Backend-focused senior developer for marketplace logic, admin workflows, and integrations.",
+    "career": [
+      "Built scalable API layers for multi-vendor platforms",
+      "Integrated third-party services, notifications, and reporting APIs",
+      "Designed permission systems for customer/admin portals"
+    ]
+  },
+  {
+    "id": "UZ-002",
+    "name": "Dilshod Rakhimov",
+    "country": "Uzbekistan",
+    "city": "Samarkand",
+    "role": "Senior Full-Stack Engineer",
+    "seniority": "Senior",
+    "years": 9,
+    "skills": [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Prisma",
+      "Supabase"
+    ],
+    "domain": "MVP development, SaaS admin tools, customer portals",
+    "availability": "Available in 2 weeks",
+    "timezone": "UZT / UTC+5",
+    "languages": [
+      "English",
+      "Uzbek",
+      "Russian"
+    ],
+    "summary": "Fast full-stack builder who can own MVPs from database schema to polished UI.",
+    "career": [
+      "Delivered MVPs for HR, booking, and internal workflow products",
+      "Built Supabase-backed dashboards with auth and RLS concepts",
+      "Handled frontend, backend, deployment, and iteration cycles"
+    ]
+  },
+  {
+    "id": "UZ-003",
+    "name": "Madina Saidova",
+    "country": "Uzbekistan",
+    "city": "Tashkent",
+    "role": "Senior UI Engineer",
+    "seniority": "Senior",
+    "years": 8,
+    "skills": [
+      "React",
+      "TypeScript",
+      "Framer Motion",
+      "Tailwind CSS",
+      "Accessibility"
+    ],
+    "domain": "High-quality interfaces, component libraries, product UX",
+    "availability": "Available now",
+    "timezone": "UZT / UTC+5",
+    "languages": [
+      "English",
+      "Uzbek",
+      "Russian"
+    ],
+    "summary": "Turns product ideas into clean, modern, and usable web interfaces.",
+    "career": [
+      "Built reusable component libraries for product teams",
+      "Improved accessibility and mobile responsiveness across large apps",
+      "Collaborated closely with founders and designers on MVP launches"
+    ]
+  },
+  {
+    "id": "UZ-004",
+    "name": "Rustam Akhmedov",
+    "country": "Uzbekistan",
+    "city": "Tashkent",
+    "role": "Senior AI / ML Engineer",
+    "seniority": "Senior",
+    "years": 11,
+    "skills": [
+      "Python",
+      "LLM APIs",
+      "RAG",
+      "Vector DB",
+      "LangChain",
+      "FastAPI"
+    ],
+    "domain": "AI assistants, document search, internal knowledge systems",
+    "availability": "Available in 1 month",
+    "timezone": "UZT / UTC+5",
+    "languages": [
+      "English",
+      "Uzbek",
+      "Russian"
+    ],
+    "summary": "Builds practical AI products using LLM APIs, retrieval systems, and Python backends.",
+    "career": [
+      "Built document Q&A systems for business teams",
+      "Integrated LLM workflows into internal tools and customer apps",
+      "Designed evaluation flows for AI output quality and consistency"
+    ]
+  },
+  {
+    "id": "UZ-005",
+    "name": "Bekzod Tursunov",
+    "country": "Uzbekistan",
+    "city": "Bukhara",
+    "role": "Senior Data Engineer",
+    "seniority": "Senior",
+    "years": 10,
+    "skills": [
+      "Python",
+      "SQL",
+      "Airflow",
+      "BigQuery",
+      "dbt",
+      "ETL"
+    ],
+    "domain": "Data pipelines, analytics warehouses, reporting automation",
+    "availability": "Available in 2 weeks",
+    "timezone": "UZT / UTC+5",
+    "languages": [
+      "English",
+      "Uzbek",
+      "Russian"
+    ],
+    "summary": "Creates reliable data pipelines and reporting foundations for growing companies.",
+    "career": [
+      "Designed ETL pipelines for marketing and operations analytics",
+      "Built automated dashboards for finance and product teams",
+      "Improved data quality checks and warehouse structure"
+    ]
+  },
+  {
+    "id": "UZ-006",
+    "name": "Nodir Yusupov",
+    "country": "Uzbekistan",
+    "city": "Tashkent",
+    "role": "Senior DevOps Engineer",
+    "seniority": "Senior",
+    "years": 12,
+    "skills": [
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "GitHub Actions",
+      "Nginx",
+      "Linux"
+    ],
+    "domain": "Production deployment, server automation, monitoring",
+    "availability": "Available now",
+    "timezone": "UZT / UTC+5",
+    "languages": [
+      "English",
+      "Uzbek",
+      "Russian"
+    ],
+    "summary": "Production-minded engineer for deployment, infrastructure, and reliability cleanup.",
+    "career": [
+      "Moved teams from manual deployments to automated CI/CD",
+      "Configured scalable Linux-based production environments",
+      "Improved monitoring, backups, and incident response processes"
+    ]
+  },
+  {
+    "id": "UZ-007",
+    "name": "Malika Abdurakhmanova",
+    "country": "Uzbekistan",
+    "city": "Tashkent",
+    "role": "Senior Product Designer / Frontend Developer",
+    "seniority": "Senior",
+    "years": 9,
+    "skills": [
+      "Figma",
+      "React",
+      "Tailwind CSS",
+      "UX Research",
+      "Design Systems"
+    ],
+    "domain": "Founder MVPs, landing pages, UX-driven web products",
+    "availability": "Available in 2 weeks",
+    "timezone": "UZT / UTC+5",
+    "languages": [
+      "English",
+      "Uzbek",
+      "Russian"
+    ],
+    "summary": "Hybrid designer-developer who can shape UX and implement polished interfaces.",
+    "career": [
+      "Designed and implemented MVPs for startups and service marketplaces",
+      "Built landing pages optimized for lead capture and clarity",
+      "Created design systems for faster product iteration"
+    ]
+  },
+  {
+    "id": "UZ-008",
+    "name": "Sardor Mirzaev",
+    "country": "Uzbekistan",
+    "city": "Tashkent",
+    "role": "Senior PHP / Laravel Engineer",
+    "seniority": "Senior",
+    "years": 13,
+    "skills": [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "Vue.js",
+      "REST APIs",
+      "Queues"
+    ],
+    "domain": "Business systems, CRM, ERP-lite tools, admin portals",
+    "availability": "Available now",
+    "timezone": "UZT / UTC+5",
+    "languages": [
+      "English",
+      "Uzbek",
+      "Russian"
+    ],
+    "summary": "Experienced Laravel engineer for practical business software and admin-heavy products.",
+    "career": [
+      "Built CRM and operations systems for regional companies",
+      "Created payment-ready order flows and back-office dashboards",
+      "Modernized older PHP systems into maintainable Laravel apps"
+    ]
+  },
+  {
+    "id": "UZ-009",
+    "name": "Jasur Khamidov",
+    "country": "Uzbekistan",
+    "city": "Fergana",
+    "role": "Senior React Native Engineer",
+    "seniority": "Senior",
+    "years": 8,
+    "skills": [
+      "React Native",
+      "Expo",
+      "Firebase",
+      "Supabase",
+      "Stripe SDK",
+      "Maps"
+    ],
+    "domain": "Mobile apps, field operations, customer platforms",
+    "availability": "Available in 1 month",
+    "timezone": "UZT / UTC+5",
+    "languages": [
+      "English",
+      "Uzbek",
+      "Russian"
+    ],
+    "summary": "Mobile engineer for app MVPs, operational apps, and customer-facing mobile products.",
+    "career": [
+      "Built field-service apps with location and task management",
+      "Integrated auth, payment, and push notification flows",
+      "Improved app stability and release processes"
+    ]
+  },
+  {
+    "id": "UZ-010",
+    "name": "Kamoliddin Ergashev",
+    "country": "Uzbekistan",
+    "city": "Tashkent",
+    "role": "Senior Security Engineer",
+    "seniority": "Senior",
+    "years": 10,
+    "skills": [
+      "AppSec",
+      "Cloud Security",
+      "Secure SDLC",
+      "OWASP",
+      "Code Review",
+      "Monitoring"
+    ],
+    "domain": "Application security, cloud hardening, security reviews",
+    "availability": "Available in 2 weeks",
+    "timezone": "UZT / UTC+5",
+    "languages": [
+      "English",
+      "Uzbek",
+      "Russian"
+    ],
+    "summary": "Helps startups reduce security risk before enterprise customers or audits arrive.",
+    "career": [
+      "Reviewed web apps for common security weaknesses",
+      "Built secure development checklists for engineering teams",
+      "Hardened cloud environments and access control practices"
+    ]
+  },
+  {
+    "id": "UZ-011",
+    "name": "Shahlo Ismatova",
+    "country": "Uzbekistan",
+    "city": "Samarkand",
+    "role": "Senior Technical Project Manager",
+    "seniority": "Senior",
+    "years": 11,
+    "skills": [
+      "Agile Delivery",
+      "Product Specs",
+      "QA Planning",
+      "Jira",
+      "Client Communication"
+    ],
+    "domain": "Remote development delivery, client communication, sprint management",
+    "availability": "Available now",
+    "timezone": "UZT / UTC+5",
+    "languages": [
+      "English",
+      "Uzbek",
+      "Russian"
+    ],
+    "summary": "Keeps distributed senior developers aligned with business goals, timelines, and delivery quality.",
+    "career": [
+      "Managed remote engineering teams across multiple time zones",
+      "Converted founder requirements into buildable technical scopes",
+      "Coordinated QA, release planning, and client updates"
+    ]
+  },
+  {
+    "id": "ID-001",
+    "name": "Bima Pratama",
+    "country": "Indonesia",
+    "city": "Jakarta",
+    "role": "Senior Full-Stack Engineer",
+    "seniority": "Senior",
+    "years": 10,
+    "skills": [
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "AWS",
+      "GraphQL"
+    ],
+    "domain": "Marketplace apps, booking systems, SaaS dashboards",
+    "availability": "Available now",
+    "timezone": "WIB / UTC+7",
+    "languages": [
+      "English",
+      "Indonesian"
+    ],
+    "summary": "Full-stack engineer experienced in marketplaces, booking flows, and admin platforms.",
+    "career": [
+      "Built customer/vendor/admin flows for marketplace products",
+      "Integrated search, booking, notifications, and analytics modules",
+      "Led refactoring work for faster product iteration"
+    ]
+  },
+  {
+    "id": "ID-002",
+    "name": "Sari Wulandari",
+    "country": "Indonesia",
+    "city": "Bandung",
+    "role": "Senior Frontend Engineer",
+    "seniority": "Senior",
+    "years": 9,
+    "skills": [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "Storybook"
+    ],
+    "domain": "Consumer apps, landing pages, enterprise web interfaces",
+    "availability": "Available in 2 weeks",
+    "timezone": "WIB / UTC+7",
+    "languages": [
+      "English",
+      "Indonesian"
+    ],
+    "summary": "Frontend specialist for clean UI, responsive layouts, and reliable component systems.",
+    "career": [
+      "Built enterprise dashboards used by operations teams",
+      "Created design-system components for faster frontend development",
+      "Optimized mobile UX for consumer-facing products"
+    ]
+  },
+  {
+    "id": "ID-003",
+    "name": "Rizky Santoso",
+    "country": "Indonesia",
+    "city": "Surabaya",
+    "role": "Senior Backend Engineer",
+    "seniority": "Senior",
+    "years": 12,
+    "skills": [
+      "Go",
+      "Node.js",
+      "PostgreSQL",
+      "Kafka",
+      "Docker",
+      "Microservices"
+    ],
+    "domain": "High-volume APIs, event-driven systems, platform backend",
+    "availability": "Available in 1 month",
+    "timezone": "WIB / UTC+7",
+    "languages": [
+      "English",
+      "Indonesian"
+    ],
+    "summary": "Backend engineer suited for scalable systems, integrations, and event-driven products.",
+    "career": [
+      "Designed event-driven services for logistics-style workflows",
+      "Improved API reliability and database performance",
+      "Mentored backend teams on service boundaries and monitoring"
+    ]
+  },
+  {
+    "id": "ID-004",
+    "name": "Dewi Lestari",
+    "country": "Indonesia",
+    "city": "Jakarta",
+    "role": "Senior AI Product Engineer",
+    "seniority": "Senior",
+    "years": 8,
+    "skills": [
+      "Python",
+      "OpenAI APIs",
+      "RAG",
+      "React",
+      "FastAPI",
+      "Vector Search"
+    ],
+    "domain": "AI web apps, workflow automation, internal assistants",
+    "availability": "Available now",
+    "timezone": "WIB / UTC+7",
+    "languages": [
+      "English",
+      "Indonesian"
+    ],
+    "summary": "Combines frontend and Python AI workflows to ship useful AI products quickly.",
+    "career": [
+      "Built AI-assisted document analysis tools",
+      "Integrated LLM features into SaaS dashboards",
+      "Created prompt evaluation and human review workflows"
+    ]
+  },
+  {
+    "id": "ID-005",
+    "name": "Agus Hidayat",
+    "country": "Indonesia",
+    "city": "Yogyakarta",
+    "role": "Senior Mobile Engineer",
+    "seniority": "Senior",
+    "years": 10,
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "REST APIs",
+      "Push Notifications"
+    ],
+    "domain": "Mobile commerce, booking, loyalty, and location-based apps",
+    "availability": "Available in 2 weeks",
+    "timezone": "WIB / UTC+7",
+    "languages": [
+      "English",
+      "Indonesian"
+    ],
+    "summary": "Flutter senior engineer focused on stable, well-structured mobile products.",
+    "career": [
+      "Launched mobile apps for e-commerce and booking services",
+      "Implemented offline-friendly flows and push notification systems",
+      "Improved app performance and crash-free sessions"
+    ]
+  },
+  {
+    "id": "ID-006",
+    "name": "Putri Maharani",
+    "country": "Indonesia",
+    "city": "Bali",
+    "role": "Senior UX / Product Designer",
+    "seniority": "Senior",
+    "years": 9,
+    "skills": [
+      "Figma",
+      "UX Strategy",
+      "Design Systems",
+      "User Flows",
+      "Prototyping"
+    ],
+    "domain": "B2B SaaS, marketplaces, mobile-first products",
+    "availability": "Available now",
+    "timezone": "WITA / UTC+8",
+    "languages": [
+      "English",
+      "Indonesian"
+    ],
+    "summary": "Product designer for clear user journeys, founder MVPs, and conversion-focused UX.",
+    "career": [
+      "Designed marketplace onboarding and booking flows",
+      "Created product prototypes for investor and pilot demos",
+      "Built design systems for engineering handoff"
+    ]
+  },
+  {
+    "id": "ID-007",
+    "name": "Yusuf Ramadhan",
+    "country": "Indonesia",
+    "city": "Jakarta",
+    "role": "Senior DevOps / Platform Engineer",
+    "seniority": "Senior",
+    "years": 11,
+    "skills": [
+      "AWS",
+      "Docker",
+      "Terraform",
+      "CI/CD",
+      "Grafana",
+      "Linux"
+    ],
+    "domain": "Cloud setup, platform reliability, deployment pipelines",
+    "availability": "Available in 1 month",
+    "timezone": "WIB / UTC+7",
+    "languages": [
+      "English",
+      "Indonesian"
+    ],
+    "summary": "Cloud and platform engineer who stabilizes deployments and production operations.",
+    "career": [
+      "Implemented infrastructure-as-code for startup platforms",
+      "Set up monitoring, alerting, backups, and release pipelines",
+      "Reduced deployment time through automated workflows"
+    ]
+  },
+  {
+    "id": "ID-008",
+    "name": "Nadia Kartika",
+    "country": "Indonesia",
+    "city": "Bandung",
+    "role": "Senior QA / Test Lead",
+    "seniority": "Senior",
+    "years": 8,
+    "skills": [
+      "Playwright",
+      "Cypress",
+      "Manual QA",
+      "API Testing",
+      "Release QA"
+    ],
+    "domain": "QA strategy, automated testing, product release quality",
+    "availability": "Available now",
+    "timezone": "WIB / UTC+7",
+    "languages": [
+      "English",
+      "Indonesian"
+    ],
+    "summary": "Senior QA lead for structured testing, clean releases, and fewer user-facing bugs.",
+    "career": [
+      "Built QA processes for remote product teams",
+      "Created automated smoke and regression test suites",
+      "Managed release testing for web and mobile products"
+    ]
+  },
+  {
+    "id": "PH-001",
+    "name": "Miguel Santos",
+    "country": "Philippines",
+    "city": "Manila",
+    "role": "Senior Full-Stack Engineer",
+    "seniority": "Senior",
+    "years": 11,
+    "skills": [
+      "React",
+      "Node.js",
+      "Laravel",
+      "MySQL",
+      "AWS",
+      "Stripe"
+    ],
+    "domain": "SaaS, customer portals, subscription and billing products",
+    "availability": "Available now",
+    "timezone": "PHT / UTC+8",
+    "languages": [
+      "English",
+      "Filipino"
+    ],
+    "summary": "Senior full-stack developer with strong communication and end-to-end delivery skills.",
+    "career": [
+      "Built customer portals and subscription billing flows",
+      "Integrated CRM, payment, and notification systems",
+      "Worked directly with US and APAC clients on product delivery"
+    ]
+  },
+  {
+    "id": "PH-002",
+    "name": "Isabella Reyes",
+    "country": "Philippines",
+    "city": "Cebu",
+    "role": "Senior Frontend / Webflow Developer",
+    "seniority": "Senior",
+    "years": 8,
+    "skills": [
+      "React",
+      "Webflow",
+      "Next.js",
+      "Tailwind CSS",
+      "CMS",
+      "SEO"
+    ],
+    "domain": "Marketing sites, CMS platforms, fast MVP frontends",
+    "availability": "Available in 2 weeks",
+    "timezone": "PHT / UTC+8",
+    "languages": [
+      "English",
+      "Filipino"
+    ],
+    "summary": "Builds polished marketing websites and frontend MVPs with strong attention to conversion.",
+    "career": [
+      "Created CMS-based websites for agencies and SaaS companies",
+      "Built responsive React frontends for startup MVPs",
+      "Improved landing-page conversion through clearer UX and page speed"
+    ]
+  },
+  {
+    "id": "PH-003",
+    "name": "Carlo Dela Cruz",
+    "country": "Philippines",
+    "city": "Davao",
+    "role": "Senior Data / Automation Engineer",
+    "seniority": "Senior",
+    "years": 10,
+    "skills": [
+      "Python",
+      "SQL",
+      "Zapier",
+      "Make",
+      "APIs",
+      "Google Cloud"
+    ],
+    "domain": "Business automation, reporting, API workflows, data cleanup",
+    "availability": "Available now",
+    "timezone": "PHT / UTC+8",
+    "languages": [
+      "English",
+      "Filipino"
+    ],
+    "summary": "Automation-heavy engineer who turns repetitive operations into clean data and API workflows.",
+    "career": [
+      "Automated reporting and lead-processing workflows for service companies",
+      "Built Python scripts for data cleanup, reconciliation, and alerts",
+      "Integrated third-party APIs into internal business tools"
+    ]
+  }
+];
+
+    const $ = (selector) => document.querySelector(selector);
+    const grid = $("#developerGrid");
+    const resultCount = $("#resultCount");
+    const searchInput = $("#searchInput");
+    const countryFilter = $("#countryFilter");
+    const roleFilter = $("#roleFilter");
+    const availabilityFilter = $("#availabilityFilter");
+    const resetFilters = $("#resetFilters");
+    const modalBackdrop = $("#modalBackdrop");
+    const modalClose = $("#modalClose");
+    const modalContent = $("#modalContent");
+    const toast = $("#toast");
+
+    function initials(name) {
+      return name.split(" ").map(part => part[0]).join("").slice(0, 2).toUpperCase();
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("active");
+      setTimeout(() => toast.classList.remove("active"), 1800);
+    }
+
+    function uniqueRoles() {
+      const roles = [...new Set(developers.map(dev => dev.role))].sort();
+      roles.forEach(role => {
+        const option = document.createElement("option");
+        option.value = role;
+        option.textContent = role;
+        roleFilter.appendChild(option);
+      });
+    }
+
+    function getFilteredDevelopers() {
+      const term = searchInput.value.trim().toLowerCase();
+      const country = countryFilter.value;
+      const role = roleFilter.value;
+      const availability = availabilityFilter.value;
+
+      return developers.filter(dev => {
+        const searchable = [
+          dev.name,
+          dev.country,
+          dev.city,
+          dev.role,
+          dev.domain,
+          dev.summary,
+          dev.skills.join(" "),
+          dev.languages.join(" ")
+        ].join(" ").toLowerCase();
+
+        return (
+          (!term || searchable.includes(term)) &&
+          (country === "All" || dev.country === country) &&
+          (role === "All" || dev.role === role) &&
+          (availability === "All" || dev.availability === availability)
+        );
+      });
+    }
+
+    function renderDevelopers() {
+      const list = getFilteredDevelopers();
+      resultCount.textContent = `Showing ${list.length} developer${list.length === 1 ? "" : "s"}`;
+      grid.innerHTML = "";
+
+      if (!list.length) {
+        grid.innerHTML = `<div class="empty" style="grid-column:1/-1;">No developers match the current filters.</div>`;
+        return;
+      }
+
+      list.forEach(dev => {
+        const card = document.createElement("article");
+        card.className = "dev-card";
+        card.innerHTML = `
+          <div class="dev-head">
+            <div class="avatar">${initials(dev.name)}</div>
+            <div>
+              <h3 class="dev-name">${dev.name}</h3>
+              <div class="dev-role">${dev.role}</div>
+            </div>
+          </div>
+          <div class="meta">
+            <span class="tag blue">${dev.country}</span>
+            <span class="tag">${dev.city}</span>
+            <span class="tag green">${dev.years}+ yrs</span>
+            <span class="tag">Price: Inquiry / Negotiable</span>
+          </div>
+          <p class="summary">${dev.summary}</p>
+          <div class="meta">
+            <span class="tag">${dev.availability}</span>
+            <span class="tag">${dev.timezone}</span>
+          </div>
+          <div class="skill-row">
+            ${dev.skills.slice(0, 6).map(skill => `<span class="skill">${skill}</span>`).join("")}
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-ghost" type="button" data-view="${dev.id}">View profile</button>
+            <button class="btn btn-primary" type="button" data-select="${dev.id}">Select</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function openProfile(id) {
+      const dev = developers.find(item => item.id === id);
+      if (!dev) return;
+
+      modalContent.innerHTML = `
+        <div class="modal-header">
+          <div class="avatar" style="width:72px;height:72px;border-radius:24px;font-size:20px;">${initials(dev.name)}</div>
+          <div>
+            <h3 id="modalName">${dev.name}</h3>
+            <div class="modal-role">${dev.role} · ${dev.country}, ${dev.city}</div>
+            <div class="meta">
+              <span class="tag green">${dev.years}+ years experience</span>
+              <span class="tag blue">${dev.availability}</span>
+              <span class="tag">Price: Inquiry / Negotiable</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h4>Profile summary</h4>
+          <p class="summary" style="font-size:15px;">${dev.summary}</p>
+        </div>
+
+        <div class="modal-section">
+          <h4>Best-fit project types</h4>
+          <p class="summary" style="font-size:15px;">${dev.domain}</p>
+        </div>
+
+        <div class="modal-section">
+          <h4>Technical stack</h4>
+          <div class="skill-row" style="padding-top:0;">
+            ${dev.skills.map(skill => `<span class="skill">${skill}</span>`).join("")}
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h4>Career highlights</h4>
+          <ul class="career-list">
+            ${dev.career.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h4>Working details</h4>
+          <div class="meta">
+            <span class="tag">${dev.timezone}</span>
+            <span class="tag">${dev.languages.join(" / ")}</span>
+            <span class="tag">${dev.seniority}-level only</span>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <button class="btn btn-primary btn-block" type="button" onclick="selectDeveloper('${dev.id}')">Select ${dev.name} and leave inquiry</button>
+        </div>
+      `;
+
+      modalBackdrop.classList.add("active");
+      modalBackdrop.setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.remove("active");
+      modalBackdrop.setAttribute("aria-hidden", "true");
+    }
+
+    function selectDeveloper(id) {
+      const dev = developers.find(item => item.id === id);
+      if (!dev) return;
+
+      $("#preferredDeveloper").value = `${dev.name} — ${dev.role} (${dev.country})`;
+      closeModal();
+      document.querySelector("#inquiry").scrollIntoView({ behavior: "smooth" });
+      showToast(`${dev.name} selected`);
+    }
+
+    window.selectDeveloper = selectDeveloper;
+
+    grid.addEventListener("click", (event) => {
+      const viewId = event.target.getAttribute("data-view");
+      const selectId = event.target.getAttribute("data-select");
+      if (viewId) openProfile(viewId);
+      if (selectId) selectDeveloper(selectId);
+    });
+
+    modalClose.addEventListener("click", closeModal);
+    modalBackdrop.addEventListener("click", (event) => {
+      if (event.target === modalBackdrop) closeModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeModal();
+    });
+
+    [searchInput, countryFilter, roleFilter, availabilityFilter].forEach(el => {
+      el.addEventListener("input", renderDevelopers);
+      el.addEventListener("change", renderDevelopers);
+    });
+
+    resetFilters.addEventListener("click", () => {
+      searchInput.value = "";
+      countryFilter.value = "All";
+      roleFilter.value = "All";
+      availabilityFilter.value = "All";
+      renderDevelopers();
+    });
+
+    const inquiryForm = $("#inquiryForm");
+    const inquiryList = $("#inquiryList");
+    const clearInquiries = $("#clearInquiries");
+    const STORAGE_KEY = "senior_dev_bench_inquiries_v1";
+
+    const sampleInquiries = [
+      {
+        id: "sample-1",
+        companyName: "Sample AI Studio",
+        contactName: "Demo Client",
+        email: "demo@example.com",
+        preferredDeveloper: "General request — Senior Full-Stack Engineer",
+        hiringModel: "1-week paid trial",
+        startDate: "Within 2 weeks",
+        projectBrief: "Looking for a senior full-stack engineer to build a Vercel/Supabase MVP with auth, dashboard, and admin view.",
+        createdAt: new Date(Date.now() - 86400000).toISOString(),
+        status: "New"
+      },
+      {
+        id: "sample-2",
+        companyName: "Sample Commerce Group",
+        contactName: "Operations Lead",
+        email: "ops@example.com",
+        preferredDeveloper: "General request — Senior Mobile Engineer",
+        hiringModel: "Project-based",
+        startDate: "Flexible",
+        projectBrief: "Need a mobile developer for a customer app with login, notifications, booking flow, and CMS-backed content.",
+        createdAt: new Date(Date.now() - 3600000).toISOString(),
+        status: "New"
+      }
+    ];
+
+    function loadInquiries() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return sampleInquiries;
+      try {
+        return JSON.parse(saved);
+      } catch {
+        return sampleInquiries;
+      }
+    }
+
+    function saveInquiries(inquiries) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(inquiries));
+    }
+
+    function renderInquiries() {
+      const inquiries = loadInquiries();
+      if (!inquiries.length) {
+        inquiryList.innerHTML = `<div class="empty">No inquiries yet. New hiring requests will appear here.</div>`;
+        return;
+      }
+
+      inquiryList.innerHTML = inquiries.map(item => {
+        const date = new Date(item.createdAt).toLocaleString([], {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+
+        return `
+          <article class="inquiry">
+            <div class="inquiry-top">
+              <div>
+                <div class="inquiry-title">${item.companyName}</div>
+                <small>${item.contactName} · ${item.email}</small>
+              </div>
+              <span class="status">${item.status || "New"}</span>
+            </div>
+            <p><strong>Preferred:</strong> ${item.preferredDeveloper || "Not specified"}</p>
+            <p><strong>Model:</strong> ${item.hiringModel} · <strong>Start:</strong> ${item.startDate}</p>
+            <p>${item.projectBrief}</p>
+            <p><small>Submitted: ${date}</small></p>
+          </article>
+        `;
+      }).join("");
+    }
+
+    inquiryForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const newInquiry = {
+        id: `inq-${Date.now()}`,
+        companyName: $("#companyName").value.trim(),
+        contactName: $("#contactName").value.trim(),
+        email: $("#email").value.trim(),
+        preferredDeveloper: $("#preferredDeveloper").value.trim(),
+        hiringModel: $("#hiringModel").value,
+        startDate: $("#startDate").value,
+        projectBrief: $("#projectBrief").value.trim(),
+        createdAt: new Date().toISOString(),
+        status: "New"
+      };
+
+      const inquiries = [newInquiry, ...loadInquiries()];
+      saveInquiries(inquiries);
+      renderInquiries();
+      inquiryForm.reset();
+      showToast("Inquiry submitted");
+    });
+
+    clearInquiries.addEventListener("click", () => {
+      if (!confirm("Clear all inquiry board items in this browser?")) return;
+      saveInquiries([]);
+      renderInquiries();
+      showToast("Inquiry board cleared");
+    });
+
+    uniqueRoles();
+    renderDevelopers();
+    renderInquiries();
+  </script>
+</body>
+</html>
